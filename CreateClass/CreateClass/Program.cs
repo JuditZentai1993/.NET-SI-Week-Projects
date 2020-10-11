@@ -26,6 +26,16 @@ namespace CreateClass
             Console.WriteLine(bob.Room.RoomNumber);
             Console.WriteLine(bob.ToString());
 
+            Employee Kovacs = new Employee{Name = "Géza", BirthDate = DateTime.Now, Salary = 1000, Profession = "léhűtő"};
+            Kovacs.Room = new Room{RoomNumber = 111};
+            Employee Kovacs2 = (Employee)Kovacs.Clone();
+            Kovacs2.Room = new Room{RoomNumber = 112};
+            Console.WriteLine(Kovacs.ToString());
+            Console.WriteLine(Kovacs.Room.RoomNumber);
+            Console.WriteLine(Kovacs2.ToString());
+            Console.WriteLine(Kovacs2.Room.RoomNumber);
+            Console.ReadKey();
+
             Console.ReadLine();
 
         }
