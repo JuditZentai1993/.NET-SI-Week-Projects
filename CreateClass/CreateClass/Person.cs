@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreateClass
 {
-    public class Person
+    class Person
     {
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
