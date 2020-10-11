@@ -20,10 +20,10 @@ namespace CreateClass
 
         public object Clone()
         {
-            return this.MemberwiseClone();
-            //Employee newEmployee = (Employee)this.MemberwiseClone();
-            //newEmployee.Room = new Room {RoomNumber = Room.RoomNumber};
-            //return newEmployee;
+            //return this.MemberwiseClone();
+            Employee newEmployee = (Employee)this.MemberwiseClone();
+            newEmployee.Room = new Room { RoomNumber = Room.RoomNumber };
+            return newEmployee;
         }
 
 
