@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SerializePeople
 {
@@ -42,6 +44,14 @@ namespace SerializePeople
             {
                 return age;
             }
+        }
+
+        public void Serialize(string filename)
+        {
+            Stream stream = new FileStream(filename+".bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, this);
+            stream.Close();
         }
 
         public override string ToString()
