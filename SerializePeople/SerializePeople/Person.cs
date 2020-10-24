@@ -12,6 +12,7 @@ namespace SerializePeople
     {
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
+        public Genders Gender { get; set; }
 
         public enum Genders
         {
