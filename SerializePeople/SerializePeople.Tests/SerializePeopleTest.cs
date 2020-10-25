@@ -16,11 +16,11 @@ namespace SerializePeople.Tests
         [Test]
         public void CreateInstance_GivenPerson_ShouldShowPersonAttributes()
         {
-            Person person = new Person{ Name = "Pal", BirthDate = DateTime.Parse("1995.05.05"), Gender = Person.Genders.Male};
+            Person person = new Person{ Name = "Pal", BirthDate = DateTime.Parse("1995.05.05"), Gender = Person.Genders.Male };
             Assert.AreEqual("Pal", person.Name);
             Assert.AreEqual(DateTime.Parse("1995.05.05"), person.BirthDate);
             Assert.AreEqual(Person.Genders.Male,person.Gender);
-            Assert.AreEqual(25,person.Age());
+            Assert.AreEqual(25,person.Age);
         }
 
         [Test]

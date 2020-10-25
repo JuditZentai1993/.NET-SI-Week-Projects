@@ -10,11 +10,18 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace SerializePeople
 {
     [Serializable]
-    public class Person
+    public class Person : IDeserializationCallback
     {
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public Genders Gender { get; set; }
+        [field: NonSerialized] private int _backingFieldAge;
+        public int Age
+        {
+            get { return _backingFieldAge; }
+            set { _backingFieldAge = SetAge(); }
+        }
+
 
         public enum Genders
         {
@@ -22,18 +29,18 @@ namespace SerializePeople
             Female
         }
 
-        public int Age()
+        public int SetAge()
         {
             int age = DateTime.Today.Year - BirthDate.Year;
             if (BirthDate.Month > DateTime.Today.Month)
             {
-                return age-1;
+                return age -1;
             }
             else if (BirthDate.Month == DateTime.Today.Month)
             {
                 if (BirthDate.Day > DateTime.Today.Day)
                 {
-                    return age-1;
+                    return age -1;
                 }
                 else
                 {
@@ -67,6 +74,11 @@ namespace SerializePeople
         public override string ToString()
         {
             return "A person has a name, birthdate and a gender.";
+        }
+
+        public void OnDeserialization(object sender)
+        {
+            Age = SetAge();
         }
     }
 }
