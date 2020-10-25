@@ -7,19 +7,30 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
 namespace SerializePeople
 {
     [Serializable]
-    public class Person : IDeserializationCallback
+    public class Person : IDeserializationCallback, ISerializable
     {
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public Genders Gender { get; set; }
-        [field: NonSerialized] private int _backingFieldAge;
+        [field: NonSerialized] 
+        private int _backingFieldAge;
         public int Age
         {
             get { return _backingFieldAge; }
             set { _backingFieldAge = SetAge(); }
+        }
+
+        public Person() { }
+        protected Person(SerializationInfo info, StreamingContext context)
+        {
+            Name = (string)info.GetValue("Name", typeof(string));
+            BirthDate = (DateTime)info.GetValue("BirthDate", typeof(DateTime));
+            Gender = (Genders) info.GetValue("Gender", typeof(Genders));
+            Age = SetAge();
         }
 
 
@@ -79,6 +90,13 @@ namespace SerializePeople
         public void OnDeserialization(object sender)
         {
             Age = SetAge();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Name", this.Name);
+            info.AddValue("BirthDate", this.BirthDate);
+            info.AddValue("Gender", this.Gender);
         }
     }
 }
