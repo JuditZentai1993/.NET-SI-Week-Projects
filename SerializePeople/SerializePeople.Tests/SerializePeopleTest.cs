@@ -38,5 +38,14 @@ namespace SerializePeople.Tests
             person.Serialize("test");
             Assert.IsTrue(File.Exists("test.bin"));
         }
+
+        [Test]
+        public void Deserialize_ShouldReturnObjectDetails()
+        {
+            File.Delete("test.bin");
+            Person person = new Person { Name = "Pal", BirthDate = DateTime.Parse("1995.05.05") };
+            person.Serialize("test");
+            Assert.AreEqual(person.Name,Person.Deserialize("test").Name);
+        }
     }
 }

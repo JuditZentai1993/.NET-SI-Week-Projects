@@ -48,10 +48,20 @@ namespace SerializePeople
 
         public void Serialize(string filename)
         {
-            Stream stream = new FileStream(filename+".bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream = new FileStream(filename + ".bin", FileMode.Create, FileAccess.Write, FileShare.None);
             IFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, this);
             stream.Close();
+        }
+
+        public static Person Deserialize(string filename)
+        {
+            Person person = new Person(); // notice that Person should have a default constructor
+            Stream stream = new FileStream(filename + ".bin", FileMode.Open);
+            IFormatter formatter = new BinaryFormatter();
+            person = (Person)formatter.Deserialize(stream);
+            stream.Close();
+            return person;
         }
 
         public override string ToString()
