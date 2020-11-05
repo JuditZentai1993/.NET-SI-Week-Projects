@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* custom csss begins here */
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
