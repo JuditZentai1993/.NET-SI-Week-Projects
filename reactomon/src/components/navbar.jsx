@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./navbar.css";
+import Pokemons from "./pokemons";
+import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
  
 class NavBar extends Component {
   showMenuItems() {
@@ -17,13 +19,17 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar" onClick={this.showMenuItems}>
-            <div>Menu</div>
-            <div className="menu-items hide-menu-items">
-              <div>Show me Pokemons!</div>
-              <div>Show me Pokemon Types!</div>
-            </div>
-        </nav>
+        <Router>
+          <nav className="navbar" onClick={this.showMenuItems}>
+              <div>Menu</div>
+          </nav>
+          <nav className="navbar menu-items hide-menu-items">
+            <Switch>
+                <div><NavLink to="/pokemons"> Pokemons </NavLink></div>
+                <Route path="/pokemons" component={Pokemons}/>
+            </Switch>
+          </nav>
+        </Router>
       </React.Fragment>
     );
   }}
