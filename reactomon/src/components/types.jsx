@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import "./pokemons.css";
  
 class Types extends Component {
     state = {
@@ -17,9 +18,9 @@ class Types extends Component {
     render() {
         return (
         <React.Fragment>
-            <ul>
-                { this.state.types.map(type => <li key={type.name}>{type.name}</li>)}
-            </ul>
+            <div className="types">
+                { this.state.types.map(type => <div className="type" key={type.name}>{type.name}</div>)}
+            </div>
         </React.Fragment>
         );
     }
