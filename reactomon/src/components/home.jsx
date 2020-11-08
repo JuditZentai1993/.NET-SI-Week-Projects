@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>Hello home!</div>
+        <div style={{margin:20}}>Here you can find all the pokemons, types, and detailed description of a certain pokemon!</div>
       </React.Fragment>
     );
   }}
