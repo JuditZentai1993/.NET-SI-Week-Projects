@@ -1,0 +1,14 @@
+.welcome-text {
+  justify-content: center;
+  background-color: yellow;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  padding: 80px;
+  font-size: larger;
+  box-shadow: 25px 25px 25px 0 white inset, -25px -25px 25px 0 white inset;
+  color: mediumblue;
+  font-weight: 700;
+}
