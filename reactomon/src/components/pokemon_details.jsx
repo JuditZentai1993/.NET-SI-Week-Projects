@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import "./pokemon_details.css"
 
  
 export default class PokemonDetails extends Component {
@@ -38,8 +39,8 @@ export default class PokemonDetails extends Component {
         
         return (
             <React.Fragment>
-                <h2 style={{margin:20}}>{this.state.name}</h2>
-            <ul>
+                <h2>{this.state.name}</h2>
+            <ul className="details">
                 <li>Abilities:</li>
                     <ul>
                         {abilities}
