@@ -1,14 +1,30 @@
 import React, { Component } from "react";
+import axios from 'axios';
 // import "./navbar.css";
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
  
-class Pokemons extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div>Hello pokemon!</div>
-      </React.Fragment>
-    );
-  }}
- 
-export default Pokemons;
+export default class Pokemons extends Component {
+    state = {
+        pokemons: []
+    }
+
+    componentDidMount() {
+        axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=1100`)
+          .then(res => {
+            const pokemons = res.data.results;
+            console.log(this.state.pokemons);
+            console.log(pokemons.results);
+            this.setState({ pokemons });
+          })
+      }
+
+    render() {
+        return (
+        <React.Fragment>
+            <ul>
+                { this.state.pokemons.map(pokemon => <li>{pokemon.name}</li>)}
+            </ul>
+        </React.Fragment>
+        );
+    }
+}
