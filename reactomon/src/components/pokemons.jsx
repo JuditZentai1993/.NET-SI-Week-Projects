@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import {NavLink} from 'react-router-dom';
 // import "./navbar.css";
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
  
@@ -22,7 +23,7 @@ export default class Pokemons extends Component {
         return (
         <React.Fragment>
             <ul>
-                { this.state.pokemons.map(pokemon => <li>{pokemon.name}</li>)}
+                { this.state.pokemons.map(pokemon => <li><NavLink to={"pokemon/" + pokemon.url.slice(-2)}>{pokemon.name}</NavLink></li>)}
             </ul>
         </React.Fragment>
         );
