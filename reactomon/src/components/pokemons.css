@@ -1,0 +1,15 @@
+.pokemons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon {
+  margin: 20px;
+  padding: 30px;
+  border: 2px solid yellow;
+  border-radius: 25px;
+  background: lightblue;
+  font-size: xx-large;
+  font-variant-caps: all-petite-caps;
+}

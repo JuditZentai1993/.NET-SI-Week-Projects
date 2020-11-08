@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
+import "./pokemons.css";
  
 export default class Pokemons extends Component {
     state = {
@@ -18,9 +19,9 @@ export default class Pokemons extends Component {
     render() {
         return (
         <React.Fragment>
-            <ul>
-                { this.state.pokemons.map(pokemon => <li key={pokemon.name}><NavLink to={"pokemon/" + pokemon.url.slice(34,pokemon.url.length)}>{pokemon.name}</NavLink></li>)}
-            </ul>
+            <div className="pokemons">
+                { this.state.pokemons.map(pokemon => <div className="pokemon" key={pokemon.name}><NavLink to={"pokemon/" + pokemon.url.slice(34,pokemon.url.length)}>{pokemon.name}</NavLink></div>)}
+            </div>
         </React.Fragment>
         );
     }
