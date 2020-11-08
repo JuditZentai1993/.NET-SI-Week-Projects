@@ -1,18 +1,12 @@
 import './App.css';
-import React, { Component } from "react";
+import React from "react";
 import NavBar from "./components/navbar";
 import Home from './components/home';
 import Pokemons from './components/pokemons';
 import Types from './components/types';
 import PokemonDetails from './components/pokemon_details';
 import "./App.css";
-import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
-import { useParams } from "react-router";
-
-// function User() {
-//   let { id } = useParams();
-//   return <h2>User {id}</h2>;
-// }
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
     return (
@@ -28,7 +22,7 @@ function App() {
               <Route path="/types" component={Types}/>
               
               <Switch>
-                <Route path="/pokemon/:id" children={<PokemonDetails />} component={PokemonDetails}/>
+                <Route path="/pokemon/:id" component={PokemonDetails}/>
               </Switch>
 
             </Switch>
