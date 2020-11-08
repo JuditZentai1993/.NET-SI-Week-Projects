@@ -1,19 +1,12 @@
-.navbar {
-  border: 2px solid black;
+.nav-links {
+  border: 5px solid cornflowerblue;
   padding: 10px;
   margin: 0px 200px;
-  display: grid;
-  /* flex-wrap: wrap; */
   justify-content: center;
   font-size: 30px;
   border-radius: 25px;
   cursor: pointer;
-}
-
-.hide-menu-items {
-  display: none;
-}
-
-.show-menu-items {
-  display: block;
+  display: flex;
+  justify-content: space-around;
+  background: yellow;
 }

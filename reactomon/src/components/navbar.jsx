@@ -7,13 +7,13 @@ class NavBar extends Component {
     return (
       <div className="Nav">
         <nav>
-          <ul className="nav-links">
+          <div className="nav-links">
 
-            <li><NavLink to="/"> Home </NavLink></li>
-            <li><NavLink to="/pokemons"> Pokemons </NavLink></li>
-            <li><NavLink to="/types"> Types </NavLink></li>
+            <span><NavLink to="/"> Home </NavLink></span>
+            <span><NavLink to="/pokemons"> Pokemons </NavLink></span>
+            <span><NavLink to="/types"> Types </NavLink></span>
 
-          </ul>
+          </div>
         </nav>
       </div>
     );
