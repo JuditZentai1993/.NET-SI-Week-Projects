@@ -20,7 +20,7 @@ export default class Pokemons extends Component {
         return (
         <React.Fragment>
             <div className="pokemons">
-                { this.state.pokemons.map(pokemon => <div className="pokemon" key={pokemon.name}><NavLink to={"pokemon/" + pokemon.url.slice(34,pokemon.url.length)}>{pokemon.name}</NavLink></div>)}
+                { this.state.pokemons.map(pokemon => <div className="pokemon" key={pokemon.name} id={pokemon.url.slice(34,pokemon.url.length)}><NavLink to={"pokemon/" + pokemon.url.slice(34,pokemon.url.length)}>{pokemon.name}</NavLink></div>)}
             </div>
         </React.Fragment>
         );

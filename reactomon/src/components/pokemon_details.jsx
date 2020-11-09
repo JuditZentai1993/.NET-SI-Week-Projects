@@ -10,7 +10,8 @@ export default class PokemonDetails extends Component {
         baseExperience: Number,
         height: Number,
         weight: Number,
-        name: String
+        name: String,
+        picture : String
     }
 
     componentDidMount() {
@@ -28,6 +29,8 @@ export default class PokemonDetails extends Component {
             this.setState({ weight });
             const name = res.data.name;
             this.setState({ name });
+            const picture = res.data.sprites.other.dream_world.front_default;
+            this.setState({ picture });
           })
       }
 
@@ -40,6 +43,7 @@ export default class PokemonDetails extends Component {
         return (
             <React.Fragment>
                 <h2>{this.state.name}</h2>
+                <div className="pokemon-picture"><img src={this.state.picture} alt={this.state.name}/></div>
             <ul className="details">
                 <li>Abilities:</li>
                     <ul>
